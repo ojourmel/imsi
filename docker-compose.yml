@@ -7,14 +7,11 @@ imsi-api:
     build: ./src/api
     working_dir: /imsi
     volumes:
-        - ./src/api/ecosystem.config.js:/imsi/ecosystem.config.js:rw
-        - ./src/api/package.json:/imsi/package.json:rw
-        - ./src/api/server.js:/imsi/server.js:rw
-        - ./src/api/config/:/imsi/config/:rw
+        - ./src/api/ecosystem.config.js:/imsi/ecosystem.config.js:ro
+        - ./src/api/package.json:/imsi/package.json:ro
+        - ./src/api/server/:/imsi/server/:ro
     environment:
         NODE_ENV: development
-    ports:
-        - "8081:8081"
     links:
         - imsi-db
     command: yarn run dev
@@ -34,8 +31,6 @@ imsi-ui:
         - ./src/ui/.postcssrc.js:/imsi/.postcssrc.js:ro
         - ./src/ui/src:/imsi/src/:ro
         - ./src/ui/static:/imsi/static/:ro
-    ports:
-        - "8080:8080"
     command: yarn run dev
 
 imsi-nginx:

@@ -5,12 +5,12 @@
 const express = require('express');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
-const config = require('./config/config');
+const config = require('./config');
 
 let app = express();
 
 if ('development' == config.NODE_ENV) {
-    app.use(logger('dev'));
+  app.use(logger('dev'));
 }
 
 app.use(bodyParser.json());
@@ -31,7 +31,9 @@ app.use(function(req, res, next) {
 
 // Serve endpoint code
 app.get('/', (req, res) => res.sendStatus(200));
+app.get('/api', (req, res) => res.sendStatus(200));
 
 module.exports = app.listen(config.api_port, function () {
-    console.log('Listening on port ' + config.api_port);
+  console.log('Listening on port ' + config.api_port);
 });
+
