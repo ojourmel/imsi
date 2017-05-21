@@ -1,0 +1,53 @@
+imsi-db:
+    build: ./src/db
+    restart: always
+    command: postgres
+
+imsi-api:
+    build: ./src/api
+    working_dir: /imsi
+    volumes:
+        - ./src/api/ecosystem.config.js:/imsi/ecosystem.config.js:rw
+        - ./src/api/package.json:/imsi/package.json:rw
+        - ./src/api/server.js:/imsi/server.js:rw
+        - ./src/api/config/:/imsi/config/:rw
+    environment:
+        NODE_ENV: development
+    ports:
+        - "8081:8081"
+    links:
+        - imsi-db
+    command: yarn run dev
+
+imsi-ui:
+    build: ./src/ui
+    working_dir: /imsi
+    volumes:
+        - ./src/ui/.babelrc:/imsi/.babelrc:ro
+        - ./src/ui/build:/imsi/build/:ro
+        - ./src/ui/config:/imsi/config/:ro
+        - ./src/ui/.editorconfig:/imsi/.editorconfig:ro
+        - ./src/ui/.eslintignore:/imsi/.eslintignore:ro
+        - ./src/ui/.eslintrc.js:/imsi/.eslintrc.js:ro
+        - ./src/ui/index.html:/imsi/index.html:ro
+        - ./src/ui/package.json:/imsi/package.json:ro
+        - ./src/ui/.postcssrc.js:/imsi/.postcssrc.js:ro
+        - ./src/ui/src:/imsi/src/:ro
+        - ./src/ui/static:/imsi/static/:ro
+    ports:
+        - "8080:8080"
+    command: yarn run dev
+
+imsi-nginx:
+    build: ./src/nginx
+    working_dir: /imsi
+    volumes_from:
+        - imsi-ui
+    links:
+        - imsi-api
+        - imsi-ui
+    environment:
+        DOCUMENTROOT: /imsi
+    ports:
+        - "8000:80"
+

@@ -1,0 +1,42 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "An api for imsi",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "global": "^4.3.1",
+    "js-yaml": "^3.7.0",
+    "mime-types": "^2.1.13",
+    "morgan": "^1.7.0",
+    "pm2": "^2.2.2"
+  },
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-node": "^4.2.2"
+  },
+  "scripts": {
+    "build": "pm2-docker start ecosystem.config.js --env production",
+    "dev": "pm2-docker start ecosystem.config.js",
+    "lint": "./node_modules/eslint/bin/eslint.js ./config/**/*.js ./server.js"
+  },
+  "config": {
+    "blanket": {
+      "pattern": [
+        ""
+      ],
+      "data-cover-never": [
+        "node_modules",
+        "test"
+      ],
+      "data-cover-reporter-options": {
+        "relativepath": true
+      }
+    }
+  }
+}
