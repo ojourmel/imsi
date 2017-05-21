@@ -6,7 +6,14 @@ let config = {};
 
 // A few constants can be set by the environment
 config.NODE_ENV = process.env.NODE_ENV || 'development';
-config.api_port = process.env.OMP_API_PORT || 8081;
+config.api_port = process.env.PORT;
+config.sql = {
+	user: process.env.POSTGRES_USER,
+	password: process.env.POSTGRES_PASSWORD,
+	db: process.env.POSTGRES_DB,
+	address: process.env.POSTGRES_ADDRESS,
+	port: process.env.POSTGRES_PORT
+};
 
 /*
  * Set constants.
@@ -16,6 +23,7 @@ config.api_port = process.env.OMP_API_PORT || 8081;
  */
 Object.freeze(config.NODE_ENV);
 Object.freeze(config.api_port);
+Object.freeze(config.sql);
 
 /*
  * Overwrite module export object to be config

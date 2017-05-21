@@ -1,7 +1,6 @@
 FROM postgres:alpine
 
-RUN mkdir -p /imsi/
-WORKDIR /imsi
+run mkdir -p /docker-entrypoint-initdb.d
 
-COPY ./imsi.sql /imsi/imsi.sql
-COPY ./imsi-seed.sql /imsi/imsi-seed.sql
+COPY ./imsi.sql /docker-entrypoint-initdb.d/00-imsi.sql
+COPY ./imsi-seed.sql /docker-entrypoint-initdb.d/10-imsi-seed.sql

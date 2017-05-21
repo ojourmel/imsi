@@ -1,6 +1,7 @@
 imsi-db:
     build: ./src/db
     restart: always
+    env_file: imsi.env
     command: postgres
 
 imsi-api:
@@ -10,8 +11,7 @@ imsi-api:
         - ./src/api/ecosystem.config.js:/imsi/ecosystem.config.js:ro
         - ./src/api/package.json:/imsi/package.json:ro
         - ./src/api/server/:/imsi/server/:ro
-    environment:
-        NODE_ENV: development
+    env_file: imsi.env
     links:
         - imsi-db
     command: yarn run dev
@@ -19,6 +19,7 @@ imsi-api:
 imsi-ui:
     build: ./src/ui
     working_dir: /imsi
+    env_file: imsi.env
     volumes:
         - ./src/ui/.babelrc:/imsi/.babelrc:ro
         - ./src/ui/build:/imsi/build/:ro
@@ -41,8 +42,6 @@ imsi-nginx:
     links:
         - imsi-api
         - imsi-ui
-    environment:
-        DOCUMENTROOT: /imsi
     ports:
         - "8000:80"
 
