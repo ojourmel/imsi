@@ -2,7 +2,8 @@
   "name": "api",
   "version": "1.0.0",
   "description": "An api for imsi",
-  "license": "",
+  "author": "Oliver Jourmel <oliver.jourmel@gmail.com>",
+  "license": "BSD3",
   "dependencies": {
     "body-parser": "^1.15.2",
     "express": "^4.14.0",

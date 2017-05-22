@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A ui for imsi",
   "author": "Oliver Jourmel <oliver.jourmel@gmail.com>",
-  "private": true,
+  "license": "BSD3",
   "scripts": {
     "dev": "node build/dev-server.js",
     "start": "node build/dev-server.js",
