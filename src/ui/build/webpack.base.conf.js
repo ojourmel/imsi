@@ -22,7 +22,9 @@ module.exports = {
     extensions: ['.js', '.vue', '.json'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      '@': resolve('src')
+      '@': resolve('src'),
+      // Workaround https://github.com/Reactive-Extensions/RxJS/issues/832, until it's fixed
+      'rx$': 'rx/dist/rx.js'
     }
   },
   module: {

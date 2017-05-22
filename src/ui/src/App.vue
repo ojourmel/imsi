@@ -6,9 +6,17 @@
 </template>
 
 <script>
+import falcor from 'falcor';
+import HttpDataSource from 'falcor-http-datasource';
+
+var model = new falcor.Model({source: new HttpDataSource('/api/imsi.json')});
+model.get('greeting').then((response) => {
+  console.log(response.json.greeting);
+});
+
 export default {
   name: 'app'
-}
+};
 </script>
 
 <style>

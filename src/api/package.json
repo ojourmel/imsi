@@ -6,6 +6,9 @@
   "dependencies": {
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
+    "falcor": "^0.1.17",
+    "falcor-express": "^0.1.4",
+    "falcor-router": "^0.8.0",
     "global": "^4.3.1",
     "js-yaml": "^3.7.0",
     "mime-types": "^2.1.13",
