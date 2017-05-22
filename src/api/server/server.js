@@ -6,6 +6,7 @@ const express = require('express');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
 const config = require('./config');
+const db = require('./db.js');
 
 let app = express();
 
@@ -32,6 +33,15 @@ app.use(function(req, res, next) {
 // Serve endpoint code
 app.get('/', (req, res) => res.sendStatus(200));
 app.get('/api', (req, res) => res.sendStatus(200));
+app.get('/api/roles', (req, res) => {
+  db.query('SELECT * from role', (err, result) => {
+    if(err) {
+      return console.error('error running query', err);
+    } else {
+      res.send(result.rows);
+    }
+  });
+});
 
 module.exports = app.listen(config.api_port, function () {
   console.log('Listening on port ' + config.api_port);

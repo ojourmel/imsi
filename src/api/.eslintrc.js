@@ -35,7 +35,7 @@ module.exports = {
             "error"
         ],
         "no-unused-vars": [
-            "error", { "argsIgnorePattern": "res|req" }
+            "warn", { "argsIgnorePattern": "res|req" }
         ]
 
     }

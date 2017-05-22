@@ -1,8 +1,12 @@
 #### imsi - internet music score index
 
+Use `docker-compose build` and `docker-compose up` to get started. `nginx` will serve the application (in development mode) at `http://localhost:8000`.
+
+Use `docker-compose down` and `docker-compose rm` to clear up.
+
 ---
 
-### Secrets
+#### Secrets
 
 Several application secrets are required to build this project, including a `postgres` username and password, as well as `api` and `ui` dev ports.
 
