@@ -10,7 +10,7 @@ imsi-api:
     volumes:
         - ./src/api/ecosystem.config.js:/imsi/ecosystem.config.js:ro
         - ./src/api/package.json:/imsi/package.json:ro
-        - ./src/api/server/:/imsi/server/:ro
+        - ./src/api/src/:/imsi/src/:ro
     env_file: imsi.env
     links:
         - imsi-db

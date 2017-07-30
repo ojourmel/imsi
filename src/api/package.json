@@ -28,7 +28,7 @@
   "scripts": {
     "dev": "pm2-docker start ecosystem.config.js --raw",
     "build": "pm2-docker start ecosystem.config.js --raw --env production",
-    "lint": "./node_modules/eslint/bin/eslint.js ./server/"
+    "lint": "./node_modules/eslint/bin/eslint.js ./src/"
   },
   "config": {
     "blanket": {

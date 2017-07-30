@@ -1,8 +1,8 @@
 module.exports = {
   apps : [{
     name        : "imsi api",
-    script      : "./server/server.js",
-    watch       : ["./server"],
+    script      : "./src/server.js",
+    watch       : ["./src"],
     ignore_watch: ["node_modules", "**/*.swp"],
     env: {
       NODE_ENV: "development",
