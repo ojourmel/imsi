@@ -4,10 +4,10 @@
 const router = require('falcor-router');
 const db = require('./db');
 
-const imsi_router = new router([{
-    // match a request for the key "greeting"
+const imsiRouter = new router([{
+    // match a request for the key 'greeting'
   route: 'greeting',
-    // respond with a PathValue with the value of "Hello World."
+    // respond with a PathValue with the value of 'Hello World.'
   get: () => {
     return { path:['greeting'], value: ['Hello World', 'Goodbye World'] }
   }
@@ -15,7 +15,7 @@ const imsi_router = new router([{
 {
   route: 'creation',
   get: () => {
-    return db.query("SELECT * FROM creation", null, (err, dbres) => {
+    return db.query('SELECT * FROM creation', null, (err, dbres) => {
       console.log(JSON.stringify(err, dbres, null, 2));
       return {
         path:['creation'],
@@ -27,4 +27,4 @@ const imsi_router = new router([{
 }
 ]);
 
-module.exports = imsi_router;
+module.exports = imsiRouter;
