@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { http } from "../services/http.service";
+import { http } from "@/services/http.service";
 
 export default {
   data() {
@@ -19,7 +19,6 @@ export default {
   created() {
     this.message = "loading...";
     http.get("/creators").then((value) => {
-      console.log(value);
       this.message = value.data.message;
     });
   },
