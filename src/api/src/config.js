@@ -5,7 +5,7 @@
 let config = {};
 
 // A few constants can be set by the environment
-config.NODE_ENV = process.env.NODE_ENV || 'development';
+config.NODE_ENV = process.env.NODE_ENV || "development";
 config.api_port = process.env.API_PORT;
 config.sql = {
   user: process.env.POSTGRES_USER,

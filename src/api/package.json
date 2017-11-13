@@ -12,9 +12,6 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
-    "falcor": "^1.0.1",
-    "falcor-express": "^0.1.4",
-    "falcor-router": "^0.8.1",
     "global": "^4.3.1",
     "js-yaml": "^3.10.0",
     "mime-types": "^2.1.17",
