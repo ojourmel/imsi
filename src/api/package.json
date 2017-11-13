@@ -3,32 +3,32 @@
   "version": "1.0.0",
   "description": "An api for imsi",
   "author": "Oliver Jourmel <oliver.jourmel@gmail.com>",
-  "license": "BSD3",
-  "dependencies": {
-    "body-parser": "^1.15.2",
-    "express": "^4.14.0",
-    "falcor": "^0.1.17",
-    "falcor-express": "^0.1.4",
-    "falcor-router": "^0.8.0",
-    "global": "^4.3.1",
-    "js-yaml": "^3.7.0",
-    "mime-types": "^2.1.13",
-    "morgan": "^1.7.0",
-    "pg": "^6.2.2",
-    "pm2": "^2.2.2"
-  },
-  "devDependencies": {
-    "eslint": "^3.19.0",
-    "eslint-config-standard": "^10.2.1",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-node": "^4.2.2",
-    "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-standard": "^3.0.1"
-  },
+  "license": "BSD-3-Clause",
   "scripts": {
     "dev": "pm2-docker start ecosystem.config.js --raw",
     "build": "pm2-docker start ecosystem.config.js --raw --env production",
     "lint": "./node_modules/eslint/bin/eslint.js ./src/"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "falcor": "^1.0.1",
+    "falcor-express": "^0.1.4",
+    "falcor-router": "^0.8.1",
+    "global": "^4.3.1",
+    "js-yaml": "^3.10.0",
+    "mime-types": "^2.1.17",
+    "morgan": "^1.9.0",
+    "pg": "^7.4.0",
+    "pm2": "^2.7.2"
+  },
+  "devDependencies": {
+    "eslint": "^4.11.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1"
   },
   "config": {
     "blanket": {
